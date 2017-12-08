@@ -98,7 +98,17 @@ def dataPreprocessing():
 if __name__=="__main__":
     #import dataset
     twitter_user_dataset=p.read_csv("C:/Users/Jobin/Documents/GitHub/mltwitter/gender-classifier-DFE-791531.csv",encoding='latin1')
-    #print(twitter_user_dataset.dtypes)
+    #dflen = len(twitter_user_dataset)
+    #print("before drop ", dflen)
+	#move entries with gender = unknown to a new dataframe
+    df_unknown = twitter_user_dataset[twitter_user_dataset.gender == 'unknown']
+    #remove entries with gender = unknown
+    twitter_user_dataset = twitter_user_dataset[twitter_user_dataset.gender != 'unknown']
+    #dflen = len(df_unknown)
+    #print("after drop ", dflen)
+    #dflen = len(twitter_user_dataset)
+    #print("after drop ", dflen)
+	#print(twitter_user_dataset.dtypes)
     #preprocessing of data
 
 
